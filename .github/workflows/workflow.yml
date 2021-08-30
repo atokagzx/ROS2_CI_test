@@ -2,7 +2,7 @@ name: ROS 2 Galactic Geochelone CI
 on: [push]
 jobs:    
   build:
-    runs-on: ubuntu-20.04.03
+    runs-on: ubuntu-20.04
     container: ros2:galactic
     steps:
       - uses: actions/checkout@v1
