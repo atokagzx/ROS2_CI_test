@@ -1,0 +1,17 @@
+name: ROS 2 Galactic Geochelone CI
+on: [push]
+jobs:    
+  build:
+    runs-on: ubuntu-20.04.03
+    container: ros2:galactic
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install ROS
+        run: |
+          g++ --version
+          cd / && ./ros_entrypoint.sh
+          apt-get update
+          sudo apt install software-properties-common
+          sudo add-apt-repository universe
+          sudo apt update && sudo apt install curl gnupg lsb-release
+          sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
